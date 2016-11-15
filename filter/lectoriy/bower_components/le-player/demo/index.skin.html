@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>LePlayer Demo Page</title>
+		<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../dist/css/vps/le-player.css">
+		<style>
+			body
+			{
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="warning-subtitle" style="display: none;border: 1px solid #f97070; background: #fee0e0; color: #f91000; padding: 5px 10px;">Note that for subtitles to work you need to run this page under
+			<em>http</em> protocol.
+		</div>
+		<div>
+			<h3>Change skin</h3>
+			<select id="skin">
+
+			</select>
+		</div>
+		<h2>Single video</h2>
+		<video id="video1" src="sample1.mp4" height="200"></video>
+		<h2>Multiple videos</h2>
+		<video id="video2">
+			<source src="sample1.mp4" title="320p">
+			<source src="sample2.mp4" title="1280">
+			<track label="EN" srclang="en" src="subs_en.vtt" kind="subtitles">
+			<track label="RU" srclang="ru" src="subs_ru.vtt" kind="subtitles">
+		</video>
+		<h2>Corrupted</h2>
+		<video id="video3">
+			<source src="corrupted.mp4">
+		</video>
+	</body>
+	<script src="../dist/js/le-player.js"></script>
+	<script>
+		$(document).ready(function () {
+			if (window.location.protocol != 'http:')
+				$('.warning-subtitle').show();
+			$('#video1').lePlayer({
+				poster : 'poster.jpg'
+			});
+			$('#video2').lePlayer({ width : 500 });
+			$('#video3').lePlayer({ width : 300 });
+		});
+	</script>
+</html>

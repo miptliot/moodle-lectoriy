@@ -1,0 +1,52 @@
+{
+  "name": "le-player",
+  "version": "0.0.1",
+  "description": "The best HTML5 video player made for Lectoriy.",
+  "main": "dist/js/le-player.min.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development grunt",
+    "docs": "jsdoc -c docs/conf.json -d docs/out -t ./node_modules/minami --readme ./README.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miptliot/le-player.git"
+  },
+  "keywords": [
+    "player",
+    "html5",
+    "Lectoriy",
+    "video",
+    "Pulsar"
+  ],
+  "author": "Anna Manaenkova <anna.manaenkova@phystech.edu>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miptliot/le-player/issues"
+  },
+  "homepage": "https://github.com/miptliot/le-player#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "babel-core": "^6.7.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^0.11.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-postcss": "github:ndmitry/grunt-postcss",
+    "grunt-svgstore": "^1.0.0",
+    "grunt-webpack": "^1.0.11",
+    "jsdoc": "^3.4.0",
+    "minami": "^1.1.1",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
+  }
+}

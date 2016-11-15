@@ -1,0 +1,43 @@
+.lecture-player-container
+{
+	display: flex;
+
+}
+
+.lecture-player-container .lecture-sections-container
+{
+	display: inline-block;
+	width: 25%;
+}
+
+.lecture-player-container .lecture-sections-container .leplayer-sections
+{
+	width: 100% !important;
+}
+
+.lecture-player-container .lecture-sections-container .no-sections
+{
+	padding: 0 15px;
+}
+
+.lecture-player-container .lecture-sections-container .no-sections h3
+{
+	font-style: 19px;
+	margin-bottom: 18px;
+}
+
+.lecture-player-container .lecture-sections-container .no-sections p
+{
+	padding-bottom: 18px;
+}
+
+.lecture-player-container .lecture-video-container
+{
+	display: inline-block;
+	width: 75%;
+}
+
+.lecture-player-container .lecture-video-container .leplayer-control-collection
+{
+	padding: 0 15px 0 20px;
+}

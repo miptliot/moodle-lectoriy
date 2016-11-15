@@ -1,0 +1,29 @@
+.leplayer-poster
+{
+	display: none;
+	position: absolute;
+	z-index: @z-index-base + 7;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-size: cover;
+}
+
+
+
+.leplayer--virgin
+{
+	.leplayer-poster
+	{
+		display: block;
+	}
+}
+
+.leplayer--fullscreen
+{
+	.leplayer-poster
+	{
+		z-index: @z-index-fullscreen + 7;
+	}
+}

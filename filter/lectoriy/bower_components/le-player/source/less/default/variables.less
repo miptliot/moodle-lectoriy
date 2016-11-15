@@ -1,0 +1,169 @@
+// COLOURS COMMON
+
+// rgb(26, 74, 126)
+@color-primary: hsl(211, 65%, 30%);
+@color-active: white;
+@color-dark: black;
+
+// hsl(211,30%,90%)
+// rgb(225, 232, 239)
+@color-background: desaturate(lighten(@color-primary, 60%), 35%);
+
+// video-line
+// hsl(211,22%,56%)
+// rgb(118, 142, 167)
+@color-background-line: desaturate(lighten(@color-primary, 25%), 45%);
+@color-background-line-active: fade(@color-primary, 60%);;
+@color-background-line-buffered: fade(red, 40%);
+
+// play
+// hsl(211, 30%, 54%)
+// rgb(103, 139, 174)
+@color-background-play: desaturate(lighten(@color-primary, 25%), 35%);
+@color-background-play-hovered: @color-text;
+
+// disabled
+// hsl(211,23%,66%)
+// rgb(148, 165, 188)
+@color-disabled: desaturate(lighten(@color-primary, 35%), 45%);
+
+// control
+@color-control: lime;
+@color-control-hovered: @color-text;
+@color-control-active: orange;
+
+// dropdown
+
+// inner items
+@color-inner-item: @color-text;
+@color-inner-item-hover: lighten(@color-primary, 5%);
+@color-inner-item-active: @color-background-play;
+
+// marker
+@color-marker: @color-primary;
+// hsla(211, 30%, 90%, 0.5)
+// rgba(225, 232, 239, 0.5)
+@color-marker-border: fade(desaturate(lighten(@color-primary, 60%), 35%), 50%);
+@color-marker-shadow-border: @color-marker-border;
+@color-marker-shadow: fade(@color-primary, 80%);
+// hsla(211, 20, 55, 0.5)
+// rgba(118, 138, 167, 0.8)
+@color-marker-shadow-time: fade(desaturate(lighten(@color-primary, 25%), 45%), 80%);
+
+// timeline
+// hsl(211, 25, 25)
+// rgb(48, 63, 80)
+@color-timeline-section-even: desaturate(darken(@color-primary, 5%), 40%);
+// hsl(211, 22, 56)
+// rgb(118, 142, 167)
+@color-timeline-section-odd: desaturate(lighten(@color-primary, 25%), 45%);
+
+// text
+@color-text: @color-primary;
+@color-text-hovered: @color-background;
+@color-text-checked: @color-background;
+@color-text-active: @color-background;
+
+
+
+
+
+
+// FULLSCREEN COLOURS(FS)
+@color-fs-active: white;
+@color-fs-background: #465264;
+@color-fs-background-hover: darken(@color-fs-background, 10%);
+
+// video-line
+@color-fs-background-line: #768496;
+@color-fs-background-line-active: rgba(0, 0, 0, 0.25);
+@color-fs-background-line-buffered: fade(red, 40%);
+
+// play btn
+@color-fs-background-play: #384150;
+@color-fs-background-play-hovered: @color-fs-background-hover;
+
+// disabled
+@color-fs-disabled: #4b6b9b;
+
+// control
+@color-fs-control: @color-fs-background;
+@color-fs-control-hovered: @color-fs-background-hover;
+
+// dropdown
+@color-fs-dropdown: @color-fs-background;
+
+// inner item
+@color-fs-inner-item-hover: rgba(0, 0, 0, 0.15);
+@color-fs-inner-item-active: @color-fs-background-play;
+
+// marker
+@color-fs-marker: #2a313c;
+@color-fs-marker-border: rgba(225, 232, 239, 0.7);
+@color-fs-marker-shadow: rgba(26, 74, 126, 0.8);
+@color-fs-marker-shadow-border: rgba(225, 232, 239, 0.5);
+@color-fs-marker-shadow-time: rgba(118, 138, 167, 0.8);
+
+// text
+@color-fs-text: #e1e8ef;
+@color-fs-text-hovered: @color-fs-text;
+@color-fs-text-active: @color-fs-background;
+@color-fs-text-checked: @color-fs-background;
+
+// sections
+@color-section: white;
+@color-section-active: @color-disabled;
+// hsl(211,23%,70%)
+// rgb(157, 178, 200)
+@color-section-hover: desaturate(lighten(@color-primary, 40%), 35%);
+@color-section-2n: desaturate(lighten(@color-primary, 60%), 32%);
+@color-fs-section: fade(black, 70%);
+@color-fs-section-active: black;
+@color-fs-section-2n: rgba(47,52,63,.7);
+@color-fs-section-2n-active: rgb(47,52,63);
+
+
+
+
+
+// MINIPLAYER
+@color-miniplayer-bg: #f5f8fa;
+
+
+
+
+
+// SIZES
+@control-font-size: 16px;
+@control-text-font-size: 12px;
+@control-height: 32px;
+@control-width: 32px;
+@control-play-width: 60px;
+@divider-width: 10px;
+@miniplayer-height: 127px;
+
+
+
+
+// FONTS
+@font-main: "PT Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+
+
+@divider-width: 10px;
+@timeline-transition: 0s 0.1s ease-in-out;
+@z-index-base: 10;
+
+
+
+
+// Z-INDEX
+@z-index-base: 500;
+@z-index-miniplayer: @z-index-base + 100;
+@z-index-fullscreen: 1000;
+
+
+
+
+
+// ANIMATION
+@timeline-transition: 0s 0.1s ease-in-out;

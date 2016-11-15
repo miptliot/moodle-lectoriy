@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>LePlayer Demo Page</title>
+		<link id="linkPlayerTheme" rel="stylesheet" href="../dist/css/default/le-player.css">
+		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<style>
+
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		</style>
+	</head>
+	<body>
+<div id="debug"></div>
+		<div class="warning-subtitle alert alert-danger" role="alert" style="display: none;">
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			Note that for subtitles to work you need to run this page under
+			<em>http</em> protocol.
+		</div>
+		<div class="container">
+
+			<div class="dropdown" id="changeTheme">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			    Выбрать тему
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			    <li><a href="#" class="link-set-theme" data-name="default">Лекторий <span class="label label-default">Default</span></a></li>
+			    <li><a href="#" class="link-set-theme" data-name="vps">video.mipt</a></li>
+			    <li><a href="#" class="link-set-theme" data-name="ussr">СССР</a></li>
+			  </ul>
+			</div>
+			<h2>Multiple videos</h2>
+			<video id="video2">
+				<!--<source src="http://sms.video.mipt.ru/video/original/0004/g8nykj6zyg.mp4" title="320p">-->
+				<source src="sample2.mp4" title="1280">
+				<track label="EN" srclang="en" src="subs_en.vtt" kind="subtitles">
+				<track label="RU" srclang="ru" src="subs_ru.vtt" kind="subtitles">
+			</video>
+
+		<br> <br> <br> <br>
+
+		<p> <b>↓ ↓ ↓ Scroll ↓ ↓ ↓</b></p>
+		<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+		<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+		<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+		<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+
+		</div>
+	</body>
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+	<script src="index.js" charset="utf-8"></script>
+	<script src="../dist/js/le-player.js"></script>
+	<script>
+		$(document).ready(function () {
+			if (window.location.protocol != 'http:')
+				$('.warning-subtitle').show();
+			$('#video2').lePlayer({
+				width: 500,
+				title : 'Теория вычетов',
+				miniplayer: true,
+				videoInfo : '7-я лекция из курса: <a href="/course/Maths-ComplexAnalysis-13L">Теория функций комплексного переменного</a>'
+				//dataUrl : './data.json'
+			});
+		});
+	</script>
+</html>
+

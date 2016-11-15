@@ -1,0 +1,33 @@
+{
+  "name": "le-player",
+  "authors": [
+    "Anna Manaenkova <anna.manaenkova@phystech.edu>"
+  ],
+  "description": "The best HTML5 player made for Lectoriy.",
+  "main": [
+    "dist/js/le-player.min.js",
+    "dist/css/le-player.min.css"
+  ],
+  "keywords": [
+    "player",
+    "html5",
+    "Lectoriy",
+    "video",
+    "Pulsar"
+  ],
+  "dependencies": {
+    "jquery": ">=2.2.0"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/miptliot/le-player",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

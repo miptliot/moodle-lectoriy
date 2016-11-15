@@ -1,0 +1,257 @@
+.leplayer-sections
+{
+	font-size: 13px;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	width: 260px;
+	z-index: @z-index-base + 6;
+	box-sizing: border-box;
+
+	&--hidden
+	{
+		display: none;
+	}
+
+	&--fsonly
+	{
+		display: none;
+	}
+}
+
+.leplayer-section
+{
+	display: flex;
+	cursor: pointer;
+	padding: 5px 0;
+	background: white;
+	color: @color-dark;
+	width: 100%;
+	&:nth-child(2n)
+	{
+		background: @color-section-2n;
+	}
+	&:hover
+	{
+		background: @color-section-hover;
+	}
+	&.leplayer-section--active
+	{
+		background: @color-section-hover;
+
+		.leplayer-section-description
+		{
+			display: block;
+		}
+	}
+}
+
+.leplayer-section-time
+{
+	color: #555;
+	display: block;
+	float: left;
+	font-size: 12px;
+	font-weight: 400;
+	text-align: right;
+	width: 53px;
+}
+
+.leplayer-section-info
+{
+	display: block;
+	width: 100%;
+	float: left;
+	padding-left: 10px;
+	padding-right: 7px;
+}
+
+.leplayer-section-title
+{
+	font-weight: 500;
+}
+
+
+.leplayer-section-description
+{
+	display: none;
+	margin-top: 5px;
+}
+
+.leplayer-section-time
+{
+	color: #555;
+	display: block;
+	float: left;
+	font-size: 12px;
+	font-weight: 400;
+	text-align: right;
+	width: 53px;
+}
+
+.leplayer-section-info
+{
+	display: block;
+	width: 100%;
+	float: left;
+	padding-left: 10px;
+	padding-right: 7px;
+}
+.leplayer-section-title
+{
+	font-weight: 500;
+}
+
+.leplayer-section-description
+{
+	display: none;
+	margin-top: 5px;
+}
+
+.leplayer-section-next-info
+{
+	display: none;
+}
+
+// Sections in player
+.leplayer__inner
+{
+	.leplayer-sections
+	{
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: auto;
+	}
+	.leplayer-section
+	{
+
+		background: fade(@color-section, 80%);
+
+		&:nth-child(2n)
+		{
+			background: fade(@color-section-2n,80%);
+		}
+		&:hover
+		{
+			background: fade(@color-section-hover,80%);
+		}
+		&.leplayer-section--active
+		{
+			background: fade(@color-section-active, 80%);
+		}
+	}
+}
+
+// Sections in fullsreen mode
+.leplayer--fullscreen
+{
+	.leplayer-sections
+	{
+		display: none;
+		position: absolute;
+		top: 50px;
+		right: 50px;
+		bottom: 132px;
+		z-index: @z-index-fullscreen + 8;
+		height: calc(~"100% - 120px");
+	}
+
+	&.leplayer--user-active {
+
+		.leplayer-sections
+		{
+			display: block;
+		}
+
+		.leplayer-sections--hidden
+		{
+			display: none;
+		}
+	}
+
+	.leplayer-sections--hidden
+	{
+		display: none;
+	}
+
+	.leplayer-section
+	{
+		background: @color-fs-section;
+		color: white;
+
+		&.leplayer-section--active,
+		&:hover
+		{
+			background: @color-fs-section-active;
+		}
+		&:nth-child(2n)
+		{
+			background: @color-fs-section-2n;
+
+			&.leplayer-section--active,
+			&:hover
+			{
+				background: @color-fs-section-2n-active;
+			}
+		}
+	}
+
+	.leplayer-section-time
+	{
+		color: white;
+	}
+}
+
+.leplayer--mini
+{
+	.leplayer__inner
+	{
+
+		.leplayer-sections
+		{
+			margin-left: auto;
+			display: flex;
+			position: relative;
+			flex: 0 0 260px;
+
+			@media screen and (max-width: 750px) {
+				display: none;
+			}
+		}
+		.leplayer-section-next-info
+		{
+			display: block;
+			margin-bottom: 15px;
+		}
+
+		.leplayer-section-description
+		{
+			display: none;
+		}
+
+		.leplayer-section
+		{
+			display: none;
+			height: 100%;
+			background: @color-section-2n;
+			&:hover
+			{
+				background: @color-section-hover;
+			}
+		}
+		.leplayer-sections
+		{
+			overflow: hidden;
+		}
+		.leplayer-section-time
+		{
+			display: none;
+		}
+
+		.leplayer-section--active + .leplayer-section
+		{
+			display: block;
+		}
+	}
+}

@@ -1,0 +1,770 @@
+@import "variables.less";
+
+
+.leplayer
+{
+	color: @color-text;
+	display: block;
+	outline: 0;
+	position: relative;
+	background-color: transparent;
+
+	&.leplayer--fullscreen
+	{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100% !important;
+		max-width: none !important;
+
+	}
+
+}
+
+
+// CONTROLS
+
+.leplayer-controls
+{
+	border-collapse: separate;
+	display: table;
+	height: @control-height;
+	position: relative;
+	width: 100%;
+
+	&:not(:last-child)
+	{
+		margin-bottom: 10px;
+	}
+
+	&.controls-common
+	{
+		margin-top: 10px;
+	}
+
+	&.controls-fullscreen
+	{
+		bottom: 20px;
+		display: block;
+		left: 20px;
+		position: fixed;
+		right: 20px;
+		width: auto;
+		z-index: @z-index-fullscreen + 7;
+		.control
+		{
+			background: @color-fs-control;
+			color: @color-fs-text;
+			&:hover
+			{
+				background: @color-fs-control-hovered;
+				color: @color-fs-text-hovered;
+			}
+			&.disabled
+			{
+				color: @color-fs-disabled;
+				&:hover
+				{
+					background: @color-fs-background;
+					color: @color-fs-disabled;
+				}
+			}
+			&.play
+			{
+				background: @color-fs-background-play;
+				color:  @color-fs-active;
+				&:hover
+				{
+					background: @color-fs-background-play-hovered;
+				}
+			}
+		}
+		.control-dropdown__content
+		{
+			background: @color-fs-dropdown;
+			z-index: @z-index-fullscreen + 8;
+		}
+
+		.control-checkbox--checked
+		{
+			background: @color-fs-text-checked;
+		}
+		.info-control
+		{
+			&__content
+			{
+				background: fade(@color-fs-background, 85%);
+				color: white;
+			}
+
+			&__item
+			{
+			}
+
+		}
+		.control-text
+		{
+			background: @color-fs-background;
+			color: @color-fs-text;
+		}
+		.control-container__item
+		{
+			color: @color-fs-text;
+			&:hover
+			{
+				background: @color-fs-inner-item-hover !important;
+				color: @color-fs-text-hovered;
+			}
+			&--active
+			{
+				background: @color-fs-inner-item-active;
+				color: @color-fs-text-active;
+			}
+		}
+		.timeline
+		{
+			background: @color-fs-background-line;
+			margin: 0;
+		}
+		.timeline-container
+		{
+			background: @color-fs-background;
+			.control-text
+			{
+				height: auto;
+				position: relative;
+			}
+			&:hover
+			{
+				background: @color-fs-background;
+			}
+		}
+		.time-marker
+		{
+			background: @color-fs-marker;
+			border-right: 1px solid @color-fs-marker-border;
+			z-index: @z-index-fullscreen + 7;
+			&.shadow
+			{
+				background: @color-fs-marker-shadow;
+				border-right: 1px solid @color-fs-marker-shadow-border;
+				z-index: @z-index-fullscreen + 6;
+			}
+			.time
+			{
+				background: @color-fs-marker-shadow-time;
+				z-index: @z-index-fullscreen + 3;
+			}
+		}
+		.time-played
+		{
+			background: @color-fs-background-line-active;
+			z-index: @z-index-fullscreen + 5;
+		}
+		.time-buffered
+		{
+			background-color: @color-fs-background-line-buffered;
+			z-index: @z-index-fullscreen + 4;
+		}
+		.volume-active
+		{
+			background: @color-fs-background-line-active;
+		}
+		.volume-slider
+		{
+			height: 144px;
+		}
+		.volume-line
+		{
+			background: @color-fs-background-line;
+		}
+		.volume-marker
+		{
+			background: @color-fs-marker;
+			border-top: 1px solid @color-fs-marker-border;
+		}
+	}
+
+	.control
+	{
+		background: @color-background;
+		color: @color-text;
+		cursor: pointer;
+		display: table-cell;
+		font-size: @control-font-size;
+		height: @control-height;
+		line-height: 100%;
+		padding: 0 (@control-width - @control-font-size) / 2;
+		text-align: center;
+		vertical-align: middle;
+		width: 1%;
+		&:hover
+		{
+			background: @color-control-hovered;
+			color: @color-text-hovered;
+		}
+		&.disabled
+		{
+			cursor: not-allowed;
+			color: @color-disabled;
+			pointer-events: none;
+			&:hover
+			{
+				background: @color-background;
+				color: @color-disabled;
+			}
+		}
+
+		&.play
+		{
+			background: @color-background-play;
+			color: @color-active;
+			padding: 0 (@control-play-width - @control-font-size) / 2;
+			width: 1%;
+			&:hover
+			{
+				background: @color-background-play-hovered;
+				color: @color-background;
+			}
+		}
+	}
+
+	.control-checkbox--checked
+	{
+		background: @color-text;
+		color: @color-text-checked;
+	}
+
+	.control-dropdown
+	{
+		position: relative;
+		&__content
+		{
+			display: none;
+			position: absolute;
+			background: @color-background;
+			bottom: @control-height;
+			cursor: default;
+			display: none;
+			left: 0;
+			min-width: 100%;
+			position: absolute;
+			z-index: @z-index-base + 8;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		&:hover
+		{
+			.control-dropdown__content
+			{
+				display: block;
+			}
+		}
+		&.disabled:hover
+		{
+			.control-dropdown__content
+			{
+				display: none;
+				color: inherit;
+			}
+
+		}
+	}
+
+	.info-control
+	{
+		&__content
+		{
+			box-shadow:0px  0px 3px 0px rgba(0,0,0,0.4);
+			white-space: nowrap;
+			text-align: left;
+			background: fade(@color-background, 85%);
+			padding: 10px;
+			color: black;
+			font-size: 12px;
+			left: 50%;
+			bottom: @control-height + 5px;
+			min-width: 300px;
+			transform: translateX(-50%);
+		}
+
+		&__item
+		{
+		}
+	}
+
+	.control-container
+	{
+		display: table-cell;
+		height: 32px;
+		position: relative;
+		width: 1%;
+
+		&__item
+		{
+			display: block;
+			color: @color-text;
+			cursor: pointer;
+			font-size: @control-text-font-size;
+			line-height: @control-height;
+			padding: 0 7px;
+			&:hover
+			{
+				// TODO: Rename this variable and remove important
+				background: @color-inner-item-hover !important;
+				color: @color-text-hovered;
+			}
+			&--active
+			{
+				background: @color-inner-item-active;
+				color: @color-text-active;
+			}
+		}
+	}
+
+	.control-icon
+	{
+		line-height: @control-height;
+		padding: 0 (@control-width - @control-font-size) / 2;
+	}
+
+	.control-text
+	{
+		background: @color-background;
+		color: @color-text;
+		display: table-cell;
+		font-size: @control-text-font-size;
+		box-sizing: content-box;
+		line-height: 100%;
+		padding: 0 5px;
+		text-align: center;
+		vertical-align: middle;
+	}
+
+	.divider
+	{
+		background: none;
+		display: table-cell;
+		padding: 0 @divider-width / 2;
+		width: 0.01%;
+	}
+
+	.fa
+	{
+		text-align: center;
+		width: @control-font-size;
+	}
+
+	.inner-item
+	{
+	}
+
+	.timeline
+	{
+		background: @color-background-line;
+		cursor: pointer;
+		display: block;
+		height: 12px;
+		margin: (@control-height - 12px) / 2 0;
+		position: relative;
+		width: 100%;
+	}
+
+	.timeline-container
+	{
+		background: @color-background;
+		display: table-cell;
+		position: relative;
+		white-space: nowrap;
+		width: 100%;
+
+		&:hover
+		{
+			background: @color-background;
+		}
+	}
+
+	.timeline-subcontainer
+	{
+		display: table;
+		width: 100%;
+	}
+
+	.time-current, .time-total
+	{
+		width: 1%;
+	}
+
+	.time-marker
+	{
+		background: @color-marker;
+		border-right: 1px solid @color-marker-border;
+		cursor: pointer;
+		height: 16px;
+		left: 0;
+		margin-left: -2px;
+		position: absolute;
+		top: -2px;
+		//transition: left @timeline-transition;
+		width: 2px;
+		z-index: @z-index-base + 7;
+		&.shadow
+		{
+			background: @color-marker-shadow;
+			border-right: 1px solid @color-marker-shadow-border;
+			transition: none;
+			z-index: @z-index-base + 6;
+		}
+		.time
+		{
+			background: @color-marker-shadow-time;
+			border-radius: 1px;
+			bottom: 20px;
+			color: @color-active;
+			font-size: @control-text-font-size;
+			line-height: @control-text-font-size + 6px;
+			margin-left: -18px;
+			padding: 0 5px;
+			position: absolute;
+			z-index: @z-index-base + 3;
+		}
+	}
+
+	.time-played
+	{
+		background: @color-background-line-active;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		top: 0;
+		//transition: width @timeline-transition;
+		width: 0;
+		z-index: @z-index-base + 5;
+	}
+
+	.leplayer-timeline-sections
+	{
+		overflow-x: hidden;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+	.leplayer-timeline-section
+	{
+		background: @color-timeline-section-odd;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		top: 0;
+		//transition: width @timeline-transition;
+		width: 0;
+		z-index: @z-index-base + 4;
+	}
+
+	.leplayer-timeline-section:nth-child(2n)
+	{
+		background: @color-timeline-section-even;
+	}
+
+	.time-buffered
+	{
+		background-color: @color-background-line-buffered;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 0;
+		z-index: @z-index-base + 4;
+	}
+
+	.volume-active
+	{
+		background: @color-background-line-active;
+		bottom: 0;
+		height: 50%;
+		position: absolute;
+		width: 100%;
+	}
+
+	.volume-slider
+	{
+		height: 144px;
+	}
+
+	.volume-line
+	{
+		background: @color-background-line;
+		bottom: 10px;
+		position: absolute;
+		left: 12px;
+		right: 12px;
+		top: 10px;
+	}
+
+	.volume-marker
+	{
+		background: @color-marker;
+		bottom: 50%;
+		border-top: 1px solid @color-marker-border;
+		cursor: pointer;
+		height: 2px;
+		left: -4px;
+		margin-bottom: -1px;
+		right: -4px;
+		position: absolute;
+	}
+
+}
+
+
+
+.leplayer-control-collection--fullscreen
+{
+	display: none;
+}
+
+.leplayer--fullscreen
+{
+	.leplayer-control-collection--common
+	{
+		display: none;
+	}
+
+}
+
+.leplayer--fullscreen.leplayer--user-active
+{
+
+	.leplayer-control-collection--fullscreen
+	{
+		display: block;
+	}
+}
+
+
+.leplayer-error-display
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: red;
+	color: white;
+	font-weight: 500;
+	width: 100%;
+	height: auto;
+	display: none;
+	text-align: center;
+	font-size: 15px;
+	padding: 15px;
+	z-index: @z-index-base + 7;
+}
+
+
+.leplayer.leplayer--fullscreen
+{
+	.leplayer-error-display
+	{
+		z-index: @z-index-fullscreen + 7;
+	}
+}
+
+.leplayer-icon
+{
+	display: block;
+	min-width: 1em;
+	min-height: 1em;
+	svg
+	{
+		display: block;
+		width: 1em;
+		height: 1em;
+	}
+}
+
+.leplayer-icon-spin
+{
+	animation: leplayer-spin 2s infinite linear;
+}
+
+
+@keyframes leplayer-spin
+{
+	100%
+	{
+		transform: rotate(360deg);
+	}
+}
+
+
+
+.leplayer__inner
+{
+	position: relative;
+	overflow: hidden;
+}
+
+.leplayer--fullscreen
+{
+	.leplayer__inner
+	{
+		height: 100%;
+		margin: 0 auto;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: @z-index-fullscreen + 6;
+	}
+}
+
+.leplayer--mini
+{
+	.leplayer__inner
+	{
+		top: 0;
+		left: 0;
+		right: 0;
+		height: auto;
+		height: 100%;
+		display: flex;
+		position: fixed;
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		align-items: stretch;
+		box-sizing: border-box;
+		z-index: @z-index-miniplayer;
+		max-height: @miniplayer-height;
+		background: @color-miniplayer-bg;
+		box-shadow: 0 10px 15px -10px rgba(0,0,0,.75);
+	}
+}
+
+.leplayer__info
+{
+	display: none;
+}
+
+.leplayer--mini
+{
+	.leplayer__info
+	{
+		display: flex;
+		padding: 10px;
+		height: 50px;
+		margin: 0;
+		flex-direction: column;
+		color: black;
+		height: 100%;
+		// Width of controls in miniplayer
+		min-width: 300px;
+	}
+
+	.leplayer__title {
+		color: black;
+		font-size: 14px;
+		margin-bottom: 5px;
+		font-weight: 500;
+		line-height: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.leplayer__video-info {
+		margin-bottom: 10px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+.leplayer__title
+{
+	color: black;
+	font-size: 14px;
+	margin-bottom: 5px;
+	font-weight: 500;
+	line-height: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.leplayer--mini
+{
+	.leplayer__title
+	{
+		display: block;
+	}
+}
+
+
+.leplayer-key
+{
+	font-family: inherit;
+	font-size: inherit;
+	box-shadow: 1px 1px 0 1px rgba(120,120,120,0.5);
+	background: #eee;
+	border-radius: 2px;
+	color: #000;
+	display: inline-block;
+	margin: 4.25px 2px 4.25px 0;
+	padding: 4px;
+}
+
+
+.leplayer-miniplayer {
+	margin-top: auto;
+
+	.control-time {
+		display: table-cell;
+		vertical-align: middle;
+		padding: 6px 10px;
+		font-weight: 500;
+		width: 150px;
+		white-space: nowrap;
+		box-sizing: border-box;
+
+		@media (max-width: 440px) {
+			display: none;
+		}
+
+		&__current {
+			background: none;
+			cursor: default;
+			font-size: 15px;
+			text-align: right;
+			color: black;
+		}
+
+		&__total {
+			background: none;
+			cursor: default;
+			color: black;
+
+			&:before {
+				content : '/';
+				margin-right: 9px;
+			}
+		}
+
+	}
+
+	.volume-control:hover .volume-slider {
+		display: none
+	}
+}
+
+@import "components/video.less";
+@import "components/play-button.less";
+@import "components/loader-container.less";
+@import "components/sections.less";
+@import "components/timeline-buffered.less";
+@import "components/poster.less";

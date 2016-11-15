@@ -1,0 +1,34 @@
+.leplayer-loader-container
+{
+	&:extend(.leplayer-play-button);
+	color: @color-active;
+	font-size: 116px;
+
+	display: none;
+}
+
+.leplayer--fullscreen
+{
+	.leplayer-loader-container
+	{
+		&:extend(.leplayer--fullscreen .leplayer-play-button);
+		font-size: 128px;
+	}
+}
+
+.leplayer--mini
+{
+	.leplayer-loader-container
+	{
+		font-size: 82px;
+	}
+}
+
+
+.leplayer--waiting
+{
+	.leplayer-loader-container
+	{
+		display: flex;
+	}
+}

@@ -1,0 +1,54 @@
+@color-primary: #00548f; // rgb(26, 74, 126) hsl(59,66%,30%)
+
+@h-primary: hue(@color-primary);
+@s-primary: saturation(@color-primary);
+@l-primary: lightness(@color-primary);
+
+// hsl(211,30%,90%)
+// rgb(225, 232, 239)
+@color-background: mix(@color-primary, #fff, 12%);
+
+// hsl(211,22%,56%)
+// rgb(118, 138, 167)
+@color-background-line: fade(@color-primary, 90%);
+
+// hsl(211, 30%, 54%)
+// rgb(103, 139, 174)
+@color-background-play: desaturate(lighten(@color-primary, 10%), 35%);
+
+// hsl(211,23%,66%)
+// rgb(148, 165, 188)
+@color-disabled: #7fa9c7;
+
+@color-inner-item-hover: lighten(@color-primary, 5%);
+
+@color-marker: @color-primary;
+
+// hsla(211, 30%, 90%, 0.5)
+// rgba(225, 232, 239, 0.5)
+@color-marker-border: fade(desaturate(lighten(@color-primary, 60%), 35%), 50%);
+@color-marker-shadow-border: @color-marker-border;
+
+@color-marker-shadow: fade(@color-primary, 80%);
+
+// rgba(118, 138, 167, 0.8)
+// hsla(211, 20, 55, 0.5)
+@color-marker-shadow-time: fade(desaturate(lighten(@color-primary, 25%), 45%), 80%);
+
+@color-text: #00548f;
+
+// FS.
+@color-fs-active: white;
+@color-fs-background: #002844;
+@color-fs-background-hover: lighten(@color-fs-background, 10%);
+@color-fs-background-line: mix(@color-fs-background, #ddd, 80%);
+@color-fs-background-line-active: rgba(0, 0, 0, 0.25);
+@color-fs-background-play: #002036;
+@color-fs-disabled: mix(#7396bd, #000, 70%);
+@color-fs-inner-item-hover: rgba(0, 0, 0, 0.15);
+@color-fs-marker: #2a313c;
+@color-fs-marker-border: rgba(225, 232, 239, 0.7);
+@color-fs-marker-shadow: rgba(26, 74, 126, 0.8);
+@color-fs-marker-shadow-border: rgba(225, 232, 239, 0.5);
+@color-fs-marker-shadow-time: rgba(118, 138, 167, 0.8);
+@color-fs-text: #bfd4e3;
