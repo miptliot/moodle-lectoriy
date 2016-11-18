@@ -52,7 +52,7 @@
 			parent::__construct($repositoryid, $context, $options);
 
 			$this->apikey = $this->get_option('apikey');
-			$this->url = $this->get_option('url');
+			$this->url =  rtrim($this->get_option('url'),'/');
 
 			// Without an API key, don't show this repo to users as its useless without it.
 			if (empty( $this->apikey ) || empty( $this->url ))
@@ -172,9 +172,9 @@
 			try
 			{
 
-				$url = $this->url . "/api/v1/search?q=" . urlencode($keyword) . "&token=" . $this->apikey;
+				 $url = $this->url . "/api/v1/search?q=" . urlencode($keyword) . "&token=" . $this->apikey;
 
-				$result1 = file_get_contents($url);
+			  $result1 = file_get_contents($url);
 
 				$result = json_decode($result1, true);
 
